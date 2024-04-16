@@ -5,7 +5,15 @@ import (
 	"math"
 )
 
-// 显示输入数字为止的所有质数
+/*
+*****************************************************************
+函数作用：// 显示输入数字为止的所有质数，使用平方根法
+参数说明：
+
+	finalNum	截止数字
+
+*****************************************************************
+*/
 func ShowPrimeNumber(finalNum int) {
 	if finalNum <= 1 {
 		fmt.Println("输入数字不是有效数字", finalNum)
@@ -35,6 +43,7 @@ func ShowPrimeNumber(finalNum int) {
 
 }
 
+// 不用的原有函数，使用1/2法，相比平方根更耗时
 func ShowPrimeNumberV01(finalNum int) {
 	if finalNum <= 1 {
 		fmt.Println("输入数字不是有效数字", finalNum)
