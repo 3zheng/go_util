@@ -7,7 +7,7 @@ import (
 )
 
 func TestRandString(t *testing.T) {
-	rand.Seed(time.Now().Unix()) //rand.New(rand.NewSource(time.Now().Unix()))
+	rand.Seed(time.Now().Unix()) //1.20以后每次执行都会生成不同的随机数，已经不需要使用随机种子来生成随机数了，rand.New(rand.NewSource(time.Now().Unix()))
 
 	scope := make([]byte, 26)
 	//生成四位大写字母组成的字符串

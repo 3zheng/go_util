@@ -38,7 +38,7 @@ func ShowPrimeNumber(finalNum int) {
 	fmt.Println("primeNums capacity is ", cap(primeNums))
 	fmt.Printf("从1到%d的质数共有%d个，列表如下：\n", finalNum, len(primeNums)) //打印质数
 	for _, elem := range primeNums {
-		fmt.Printf("%d, ", elem)
+		fmt.Printf("%6d, ", elem)
 	}
 
 }
