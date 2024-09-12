@@ -14,7 +14,7 @@ import (
 
 *****************************************************************
 */
-func ShowPrimeNumber(finalNum int) {
+func ShowPrimeNumber(finalNum int) []int {
 	if finalNum <= 1 {
 		fmt.Println("输入数字不是有效数字", finalNum)
 	}
@@ -41,6 +41,7 @@ func ShowPrimeNumber(finalNum int) {
 		fmt.Printf("%6d, ", elem)
 	}
 
+	return primeNums
 }
 
 // 不用的原有函数，使用1/2法，相比平方根更耗时
