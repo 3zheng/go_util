@@ -26,6 +26,7 @@ type ServerConfig struct {
 	ForceIPv4 int    `json:"force ipv4"`
 	IP        string `json:"ip"`
 	Port      int    `json:"port"`
+	CookieKey string `json:"cookie key"`
 }
 
 type Config struct {
@@ -103,6 +104,7 @@ func InitLog(config Config) {
 	log.Println("退出InitLog")
 }
 
+// 读取配置文件
 func ReadConfigFile() Config {
 	args := os.Args //main命令行参数
 	log.Println("main args = ", args)
