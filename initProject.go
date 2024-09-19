@@ -33,6 +33,8 @@ type Config struct {
 	Database  DBConfig     `json:"database config"`
 	Server    ServerConfig `json:"server config"`
 	MysqlConn string       `json:"mysqlConn"`
+	Mode      string       `json:"Mode"`
+	None      string       `json:"None"`
 }
 
 func Recovermain() {
