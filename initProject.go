@@ -69,9 +69,13 @@ func CreateNewFile(config Config, now time.Time) *os.File {
 }
 
 // 每天新建一个日志文件 使用go util.InitLog新建一个协程来初始化日志文件，因为有select阻塞
-func InitLog(config Config) {
+// 如果不需要获取每天新建的日志的文件指针，那么ch chan<- *os.File传nil
+func InitLog(config Config, ch chan<- *os.File) {
 	now := time.Now()
 	logFile := CreateNewFile(config, now) //创建日志文件
+	if ch != nil && logFile != nil {
+		ch <- logFile
+	}
 	// 获取第二天凌晨的时间00:01,不精准定位在00:00,以免创建新文件时还在前一天
 	nextMidnight := time.Date(now.Year(), now.Month(), now.Day()+1, 0, 1, 0, 0, now.Location())
 	// 计算时间差
@@ -93,6 +97,9 @@ func InitLog(config Config) {
 		}
 		log.Println("now:", now.Format(time.DateTime))
 		logFile = CreateNewFile(config, now)
+		if ch != nil && logFile != nil {
+			ch <- logFile
+		}
 	}
 	//监听单个channel可以用for range替代for select
 	/*
